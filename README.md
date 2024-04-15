@@ -27,3 +27,13 @@ pip install -r requirements.txt
 ### Add your API key and Timelapse ID
 Insert your API_KEY from the 'Account' page on [null-space.xyz](https://null-space.xyz) at the top of `upload.py`
 The timelapse id is up for you to decide.
+
+### Setup a Cron Job on the PI to run the script
+```bash
+crontab -e
+
+# Add this cron job schedule to the file
+*/10 4-22 * * * /usr/bin/python3 /home/pi/upload.py
+
+# */10 = every 10 minutes, 4-22 = every hour from 4 AM to 10 PM inclusive, * * * = every day of month, every month, every day
+```
